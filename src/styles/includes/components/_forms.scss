@@ -1,0 +1,20 @@
+.tabs {
+  list-style: none;
+  @extend .disable-user-select;
+  li {
+    height: 38px;
+    border: 1px solid rgba(26, 7, 69, 0.1);
+    border-radius: 12px;
+    padding: 0 15px;
+    span {
+      opacity: 0.8;
+    }
+    &.active {
+      background-color: $primary;
+      color:$white;
+      span {
+        opacity: 1;
+      }
+    }
+  }
+}
