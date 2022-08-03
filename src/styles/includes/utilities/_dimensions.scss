@@ -1,0 +1,85 @@
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @include media-breakpoint-up($breakpoint) {
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+    @each $value in $z-index {
+      .z-index#{$infix}-#{$value} {
+        z-index: $value;
+      }
+    }
+  }
+}
+
+/*transforms*/
+.absolute--center-position {
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+}
+
+/*Width/Height/Min-Width/Min-Height*/
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @include media-breakpoint-up($breakpoint) {
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+    @each $prop,$abbrev in (height:h, width:w, flex:w-basis, top:top, left:left, right:right, bottom:bottom,max-width:max-width) {
+      @each $value in $dimensions {
+        .#{$abbrev}#{$infix}-#{$value} {
+          @if $prop==flex {
+            width: $value !important;
+            #{$prop}: 0 0 $value !important;
+          } @else {
+            #{$prop}: $value !important;
+          }
+        }
+      }
+    }
+
+  }
+}
+
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @include media-breakpoint-up($breakpoint) {
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+    @each $prop,$abbrev in (flex:w-basis,width:w,height:h) {
+
+      @each $size, $length in $sizes {
+        .#{$abbrev}#{$infix}-#{$size} {
+          @if $prop==flex {
+            width: $length !important;
+            #{$prop}: 0 0 $length !important;
+          } @else {
+            #{$prop}: $length !important;
+          }
+        }
+      }
+    }
+
+    @each $abbrev,$prop in (height:initial, width:initial, min-height:auto, max-height:auto, min-width:auto,max-width:auto,top:initial,left:initial,right:initial,bottom:initial) {
+      .#{$abbrev}#{$infix}-#{$prop} {
+        #{$abbrev}: $prop !important;
+      }
+    }
+
+    @each $prop in (relative,fixed,absolute,sticky) {
+
+      @if $prop==sticky {
+        .position#{$infix}-#{$prop} {
+          position: $prop !important;
+          position: -webkit-sticky;
+        }
+      } @else {
+        .position#{$infix}-#{$prop} {
+          position: $prop !important;
+        }
+      }
+    }
+  }
+}
+
+.mw-100 { max-width: 100% !important; }
+.mh-100 { max-height: 100% !important; }
+

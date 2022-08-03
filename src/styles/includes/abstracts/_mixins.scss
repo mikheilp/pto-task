@@ -1,0 +1,87 @@
+@mixin rgba-bg-variant($parent, $color) {
+  #{$parent} {
+    background-color: $color !important;
+  }
+}
+@mixin gradients-variant($parent, $color, $bg) {
+  #{$parent} {
+    background-color: $bg;
+    background-image: $color !important;
+  }
+}
+/*opacity*/
+@mixin opacity-variant($parent, $value) {
+  #{$parent} {
+    opacity: $value !important;
+  }
+}
+/*btn heights*/
+@mixin btn-heights-variant($parent, $value) {
+  #{$parent} {
+    height: $value !important;
+  }
+}
+/*border-width*/
+@mixin border-width($parent, $width, $style) {
+  #{$parent} {
+    border-width: $width !important;
+    border-style: $style;
+  }
+}
+/*rounded object*/
+@mixin rounded-object-variant($width, $color,$border-radius) {
+  background-color: $color;
+  width: $width;
+  height: $width;
+  border-radius: $border-radius;
+}
+/*transform spacing*/
+@mixin transform-spacing-left($x, $y, $transform-x, $transform-y) {
+  top:$y;
+  left:$x;
+  transform: translate($transform-x,$transform-y);
+}
+@mixin transform-spacing-right($x, $y, $transform-x, $transform-y) {
+  top:$y;
+  right:$x;
+  transform: translate($transform-x,$transform-y);
+}
+/*path fill*/
+@mixin path-fill($parent, $color) {
+  #{$parent} {
+    path {
+      fill: $color;
+      @include transition($transition-fill);
+    }
+    fill:$color;
+    &.active,
+    &:hover {
+      path {
+        fill: darken( $color, 30% );
+      }
+    }
+  }
+}
+/*make-wide-container-max-widths*/
+@mixin make-wide-container-max-widths($max-widths: $container-max-widths, $breakpoints: $grid-breakpoints) {
+  @each $breakpoint, $container-max-width in $max-widths {
+    @include media-breakpoint-up($breakpoint, $breakpoints) {
+      max-width: $container-max-width;
+    }
+  }
+}
+/*make-small-container-max-widths*/
+@mixin make-small-container-max-widths($max-widths: $small-container-max-widths, $breakpoints: $grid-breakpoints) {
+  @each $breakpoint, $container-max-width in $max-widths {
+    @include media-breakpoint-up($breakpoint, $breakpoints) {
+      max-width: $container-max-width;
+    }
+  }
+}
+
+@mixin focus-active() {
+  &:focus,
+  &:active {
+    @content;
+  }
+}
