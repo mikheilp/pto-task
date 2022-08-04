@@ -23,7 +23,7 @@
   @include media-breakpoint-up($breakpoint) {
     $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
 
-    @each $prop,$abbrev in (height:h, width:w, flex:w-basis, top:top, left:left, right:right, bottom:bottom,max-width:max-width) {
+    @each $prop,$abbrev in (height:h, width:w, flex:w-basis, min-height:min-height, max-width:max-width) {
       @each $value in $dimensions {
         .#{$abbrev}#{$infix}-#{$value} {
           @if $prop==flex {
@@ -58,7 +58,7 @@
       }
     }
 
-    @each $abbrev,$prop in (height:initial, width:initial, min-height:auto, max-height:auto, min-width:auto,max-width:auto,top:initial,left:initial,right:initial,bottom:initial) {
+    @each $abbrev,$prop in (height:initial, width:initial) {
       .#{$abbrev}#{$infix}-#{$prop} {
         #{$abbrev}: $prop !important;
       }
@@ -80,6 +80,4 @@
   }
 }
 
-.mw-100 { max-width: 100% !important; }
-.mh-100 { max-height: 100% !important; }
 

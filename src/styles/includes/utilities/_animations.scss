@@ -1,3 +1,38 @@
 html {
   scroll-behavior: smooth;
 }
+.flip-horizontal {
+  transform: scaleX(-1);
+}
+path {
+  stroke-width: 2px;
+  stroke: #D7CFFD;
+  fill: none;
+}
+.path {
+  stroke-dasharray: 160;
+  stroke: $primary;
+  &.path-handler {
+    stroke-dashoffset: 160;
+  }
+  &.reverse-path-handler {
+    stroke-dashoffset: -160;
+  }
+  &.animate {
+    animation: dash 0.5s linear forwards;
+  }
+  &.common-handler {
+    stroke-dasharray: 160;
+    stroke-dashoffset: 160;
+    &.animate {
+      animation-delay: 0.5s;
+    }
+  }
+}
+
+.data-container {
+  opacity: 0;
+  &.animate {
+    animation: fadeIn 0.5s linear forwards;
+  }
+}

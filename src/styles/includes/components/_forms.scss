@@ -1,20 +1,45 @@
-.tabs {
-  list-style: none;
-  @extend .disable-user-select;
-  li {
-    height: 38px;
-    border: 1px solid rgba(26, 7, 69, 0.1);
-    border-radius: 12px;
-    padding: 0 15px;
-    span {
-      opacity: 0.8;
+.switch {
+  position: relative;
+  input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+
+    &:checked + .slider {
+      border-color: #9D71FD;
+      background-color: #9D71FD;
     }
-    &.active {
-      background-color: $primary;
-      color:$white;
-      span {
-        opacity: 1;
+
+    &:checked + .slider:before {
+      transform: translateX(7px);
+      background-color: #ffffff;
+    }
+  }
+
+  .slider {
+    width: 22px;
+    height: 14px;
+    border: 2px solid #A39CB5;
+    transition: .4s;
+    box-sizing: border-box;
+
+    &.round {
+      border-radius: 34px;
+
+      &::before {
+        border-radius: 50%;
       }
+    }
+
+    &::before {
+      position: absolute;
+      content: "";
+      height: 8px;
+      width: 8px;
+      left: 2px;
+      bottom: 1px;
+      background-color: #A39CB5;
+      transition: .4s;
     }
   }
 }

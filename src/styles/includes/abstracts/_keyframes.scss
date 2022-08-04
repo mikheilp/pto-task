@@ -8,3 +8,9 @@
     opacity: 1;
   }
 }
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: 0;
+  }
+}

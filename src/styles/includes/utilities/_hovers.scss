@@ -18,39 +18,3 @@
     opacity: $opacity-80;
   }
 }
-@include media-breakpoint-up('lg') {
-  .hover-item {
-    //transition: background-color $transition-time ease-in-out;
-/*    h2,p,span {
-      transition: color $transition-time ease-in-out;
-    }*/
-    .link {
-      opacity: 0;
-      transition: opacity $transition-time ease-in-out;
-      visibility: hidden;
-      pointer-events: none;
-    }
-    .move-element {
-      transition: transform $transition-time ease-in-out;
-    }
-    //&.mymarket:hover {
-    //  background-color: $mymarket;
-    //}
-    //&.myauto:hover {
-    //  background-color: $myauto;
-    //}
-    &:hover {
-      /*h2,p,span {
-        color: $white !important;
-      }*/
-      .move-element {
-        transform: translateY(-30px);
-      }
-      .link {
-        opacity: 1;
-        visibility: visible;
-        pointer-events: auto;
-      }
-    }
-  }
-}

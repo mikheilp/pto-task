@@ -1,3 +1,4 @@
+/*
 @font-face {
   font-family: 'TBCXLight';
   src: url('../fonts/tbc/TBCXLight.eot');
@@ -40,7 +41,9 @@
   url('../fonts/tbc/TBCXBlack.ttf') format('truetype');
 }
 
+*/
 
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700&family=Roboto:wght@400;700&display=swap');
 
 @each $breakpoint in map-keys($grid-breakpoints) {
   @include media-breakpoint-up($breakpoint) {
@@ -59,33 +62,18 @@
   }
 }
 
-.is-uppercase {
-  text-transform: uppercase;
-  -moz-font-feature-settings: 'case';
-  -webkit-font-feature-settings: 'case';
-  font-feature-settings: 'case' on;
-}
 // line-height
 .line-height-normal {
   line-height: normal;
 }
 .font-base {
-    font-family: $font-family-base;
+  font-family: $font-family-base;
+  font-weight: 400;
 }
 .font-medium {
-    font-family: $font-family-medium;
+  font-family: $font-family-base;
+  font-weight: 700;
 }
 .font-bold {
-    font-family: $font-family-bold;
-}
-
-.text-normal {
-    font-weight:normal;
-    font-style: normal;
-}
-.line-through {
-    text-decoration: line-through;
-}
-.letter-spacing {
-  letter-spacing: 1px;
+  font-family: $font-family-bold;
 }

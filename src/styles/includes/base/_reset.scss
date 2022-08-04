@@ -32,19 +32,9 @@ select:-webkit-autofill:focus {
 }
 
 
-//new
-//*::-webkit-scrollbar {
-//    width: 0;
-//}
-@media (max-width: 1200px) {
-    .container {
-        /*max-width: 100%!important;*/
-    }
-}
-
 body {
   -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 ul,li,ol,p,h1,h2,h3,h4,h5,h6 {
